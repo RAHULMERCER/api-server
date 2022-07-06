@@ -18,7 +18,6 @@ public class SESController {
 
 	@PostMapping("/send")
 	public String sendEmail(@RequestBody Email email) {
-		log.info("Email is being sent to: "+email.getTo());
 		return mailService.sendEmail(email);
 	}
 }
