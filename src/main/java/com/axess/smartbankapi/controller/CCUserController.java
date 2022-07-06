@@ -40,7 +40,7 @@ public class CCUserController {
 		CCUser loggedInUser = this.ccUserService.getLoginDetails(loginDto.getUserId(), loginDto.getPassword());
 
 		response.setMessage("Login Verified successfully. ");
-		log.info("New user logged in.  Total logged in users: " + ccUserService.getAllUsers().size());
+		//log.info("New user logged in.  Total logged in users: " + ccUserService.getAllUsers().size());
     	sqsService.sendMessage("New user logged in.  Total logged in user: " + ccUserService.getAllUsers().size());
 		response.setHttpStatus(String.valueOf(HttpStatus.FOUND));
 		response.setHttpStatusCode(200);
