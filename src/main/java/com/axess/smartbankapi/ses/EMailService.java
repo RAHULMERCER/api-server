@@ -20,14 +20,15 @@ public class EMailService {
 	@Autowired
 	private MailSender mailSender;
 
-	public String sendEmail(Email email) {
-		return sendMessage(email);
-	}
 	@Async
 	public void sendCheckoutEmail(CCUser user) {
 		sendEmail(new Email(from,to,"Congrats! Your voucher is redeemed.","Congratulations, your coupon voucher is successfully redeemed!"));
 	}
 	@Async
+	public String sendEmail(Email email) {
+		return sendMessage(email);
+	}
+
 	public String sendMessage(Email email) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 		simpleMailMessage.setFrom(email.getFrom());
